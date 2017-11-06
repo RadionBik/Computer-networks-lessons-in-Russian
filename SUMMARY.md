@@ -10,5 +10,5 @@
 * [ПР9. ACLs](pr9-acls.md)
 * [ПР10. Протокол DHCP](pr10-dhcp.md)
 * [ПР11. Технология NAT](pr11-tehnologiya-nat.md)
-* Доступ к оборуованию
+* [Доступ к оборудованию](dostup-k-oborudovaniyu.md)
 
