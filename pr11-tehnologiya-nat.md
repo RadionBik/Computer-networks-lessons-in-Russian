@@ -51,7 +51,7 @@ Router(config)# ip nat inside source static 192.168.10.254 209.165.201.5
 Router(config)# interface s0/0/0
 Router(config-if)# ip nat inside 
 Router(config)# interface s0/0/1
-Router(config-if)# ip nat outside 
+Router(config-if)# ip nat outside
 ```
 
 > 1. Указываем, что это статический тип конверсии с 1-го адреса на 2-ой.
@@ -72,37 +72,40 @@ Router(config)# ip nat pool PUBLIC-POOL 209.165.200.241 209.165.200.250 netmask 
 Router(config)# access-list 2 permit 192.168.10.0 0.0.0.255 
 Router(config)# ip nat inside source list 2 pool PUBLIC-POOL 
 Router(config)# interface Serial0/0/0
-Router(config-if)# ip nat inside %указываем внутренний...
+Router(config-if)# ip nat inside 
 Router(config)# interface Serial0/1/0
-Router(config-if)# ip nat outside %… и внешний интерфейсы
-Для очистки динамических назначений, выполнять
-Router# сlear ip nat translation * % * – чищает ВСЕ. Возможно очистка только определённых назначений(используй автодополнение)
+Router(config-if)# ip nat outside 
 ```
 
 > 1. Указываем ИМЯ пула белых адресов, первый адрес пула, последний, и МАСКУ, которая указывает какая часть адреса принадлежит сети, какая – хосту
 > 2. Устанавливаем стандартный список доступа №2 \(любой номер из диапазона\), который разрешает определённым внутренним хостам иметь доступ к конверсии
->
 > 3. Связываем указанный пул адресов с настроенным списком доступа
+> 4. Активируем NAT на интерфейсах
 
-Настройка PAT:
+Для очистки динамических назначений, выполнять:
 
-Для нескольких публичных адресов, настройка идентична динамической, за исключением этапа привязки пула и списка доступа:
+```
+Router# сlear ip nat translation * % * – очищает ВСЕ. Возможно очистка только определённых назначений(используй автодополнение)
+```
 
-Router\(config\)\# ip nat inside source list 2 pool PUBLIC-POOL overload %в конце добавлена опция overload, которая и активирует PAT.
+Настройка **PAT. **Для нескольких публичных адресов, настройка идентична динамической, за исключением этапа привязки пула и списка доступа:
+
+```
+Router(config)# ip nat inside source list 2 pool PUBLIC-POOL overload %в конце добавлена опция overload, которая и активирует PAT.
+```
 
 Для случая с одним публичным адресом:
 
-Router\(config\)\# ip nat inside source list 2 interface serial0/1/0 overload % вместо адреса \(как в статической\), указываем интерфейс, на котором уже настроен публичный адрес
+```
+Router(config)# ip nat inside source list 2 interface serial0/1/0 overload 
+Router(config)# access-list 2 permit 192.168.0.0 0.0.255.255
+Router(config)# interface serial0/0/0
+Router(config-if)# ip nat inside
+Router(config)# interface serial0/1/0
+Router(config-if)# ip nat outside
+```
 
-Router\(config\)\# access-list 2 permit 192.168.0.0 0.0.255.255
-
-Router\(config\)\# interface serial0/0/0
-
-Router\(config-if\)\# ip nat inside
-
-Router\(config\)\# interface serial0/1/0
-
-Router\(config-if\)\# ip nat outside
+> Вместо адреса \(как в статической трансляции\), указываем интерфейс, на котором уже настроен внешний адрес
 
 **Задание**
 
