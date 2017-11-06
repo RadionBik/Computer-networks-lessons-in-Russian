@@ -1,5 +1,5 @@
 # Summary
 
 * [Введение](README.md)
-* [First Chapter](chapter1.md)
+* [ПР3. Подключение к устройствам](chapter1.md)
 
