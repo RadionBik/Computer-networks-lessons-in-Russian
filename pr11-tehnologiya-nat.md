@@ -44,43 +44,45 @@ NAT \(Network Address Translation\) – это технология трансл
 
 Из-за изменения TCP/UDP-портов, неизбежно влияние на работоспособность некоторых приложений. Для избежания подобного, используется технология port-forwarding, что позволяет задать известное правило конверсии портов.
 
-Пример конфигурации Статического NAT:
+Пример конфигурации **Статического** NAT:
 
-Router\(config\)\# ip nat inside source static 192.168.10.254 209.165.201.5 %указываем, что это статический тип конверсии с 1-го адреса на 2-ой.
+```
+Router(config)# ip nat inside source static 192.168.10.254 209.165.201.5 
+Router(config)# interface s0/0/0
+Router(config-if)# ip nat inside 
+Router(config)# interface s0/0/1
+Router(config-if)# ip nat outside 
+```
 
-Router\(config\)\# interface s0/0/0
-
-Router\(config-if\)\# ip nat inside %указываем использовать NAT, интерфейсу «смотрящему» во внутреннюю сеть
-
-Router\(config\)\# interface s0/0/1
-
-Router\(config-if\)\# ip nat outside %для внешнего интерфейса
+> 1. Указываем, что это статический тип конверсии с 1-го адреса на 2-ой.
+> 2. Указываем использовать NAT, интерфейсу «смотрящему» во внутреннюю сеть
+> 3. Делаем подобное для внешнего интерфейса
 
 Команды для верификации работы NAT:
 
-Router\# show ip nat translations % просмотр конверсий
+```
+Router# show ip nat translations % просмотр конверсий
+Router# show ip nat statistics %просмотр статистики
+```
 
-Router\# show ip nat statistics %просмотр статистики
+Пример конфигурации **Динамического** NAT:
 
-Пример конфигурации Динамического NAT:
-
-Router\(config\)\# ip nat pool PUBLIC-POOL 209.165.200.241 209.165.200.250 netmask 255.255.255.224 %указываем ИМЯ пула белых адресов, первый адрес пула, последний, и МАСКУ, которая указывает какая часть адреса принадлежит сети, какая – хосту
-
-Router\(config\)\# access-list 2 permit 192.168.10.0 0.0.0.255 % устанавливаем стандартный список доступа №2 \(любой номер из диапазона\), который разрешает определённым внутренним хостам иметь доступ к конверсии
-
-Router\(config\)\# ip nat inside source list 2 pool PUBLIC-POOL % связываем указанный пул адресов с настроенным списком доступа
-
-Router\(config\)\# interface Serial0/0/0
-
-Router\(config-if\)\# ip nat inside %указываем внутренний...
-
-Router\(config\)\# interface Serial0/1/0
-
-Router\(config-if\)\# ip nat outside %… и внешний интерфейсы
-
+```
+Router(config)# ip nat pool PUBLIC-POOL 209.165.200.241 209.165.200.250 netmask 255.255.255.224 
+Router(config)# access-list 2 permit 192.168.10.0 0.0.0.255 
+Router(config)# ip nat inside source list 2 pool PUBLIC-POOL 
+Router(config)# interface Serial0/0/0
+Router(config-if)# ip nat inside %указываем внутренний...
+Router(config)# interface Serial0/1/0
+Router(config-if)# ip nat outside %… и внешний интерфейсы
 Для очистки динамических назначений, выполнять
+Router# сlear ip nat translation * % * – чищает ВСЕ. Возможно очистка только определённых назначений(используй автодополнение)
+```
 
-Router\# сlear ip nat translation \* % \* – чищает ВСЕ. Возможно очистка только определённых назначений\(используй автодополнение\)
+> 1. Указываем ИМЯ пула белых адресов, первый адрес пула, последний, и МАСКУ, которая указывает какая часть адреса принадлежит сети, какая – хосту
+> 2. Устанавливаем стандартный список доступа №2 \(любой номер из диапазона\), который разрешает определённым внутренним хостам иметь доступ к конверсии
+>
+> 3. Связываем указанный пул адресов с настроенным списком доступа
 
 Настройка PAT:
 
