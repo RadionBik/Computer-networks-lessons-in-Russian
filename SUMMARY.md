@@ -5,4 +5,5 @@
 * [ПР4. Протокол ARP](pr4-protokol-arp.md)
 * [ПР5. Технология VLAN](pr5-vlan.md)
 * [ПР6. VLAN маршрутизация](pr5-vlan-marshrutizatsiya.md)
+* [ПР7. Статическая маршрутизация](pr7-staticheskaya-marshrutizatsiya.md)
 
