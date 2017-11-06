@@ -8,4 +8,5 @@
 * [ПР7. Статическая маршрутизация](pr7-staticheskaya-marshrutizatsiya.md)
 * [ПР8. OSPF](pr8-ospf.md)
 * [ПР9. ACLs](pr9-acls.md)
+* [ПР10. DHCP](pr10-dhcp.md)
 
