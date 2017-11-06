@@ -6,7 +6,8 @@
 * [ПР5. Технология VLAN](pr5-vlan.md)
 * [ПР6. VLAN маршрутизация](pr5-vlan-marshrutizatsiya.md)
 * [ПР7. Статическая маршрутизация](pr7-staticheskaya-marshrutizatsiya.md)
-* [ПР8. OSPF](pr8-ospf.md)
+* [ПР8. Протокол OSPF](pr8-ospf.md)
 * [ПР9. ACLs](pr9-acls.md)
-* [ПР10. DHCP](pr10-dhcp.md)
+* [ПР10. Протокол DHCP](pr10-dhcp.md)
+* ПР11. Технология NAT
 
