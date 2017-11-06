@@ -10,9 +10,10 @@
 
 ## Доступ к Packet Tracer 7.x:
 
-| login | rtskai |
+| Поле | Значение |
 | :--- | :--- |
-| password | RTSiret5knrtu |
+| Login | rtskai |
+| Password | RTSiret5knrtu |
 
 ## Доступ к EVE-NG:
 
@@ -32,8 +33,9 @@ EVE-NG– платформа виртуализации образов IOL, vIOS
 | SSH | 192.168.101.150:22 | 10.85.4.14:2222 |
 | EVE-NG nodes | 192.168.101.150:32700-32800 | 10.85.4.14:32700-32800 |
 
-| Login | student |
+| Поле \(при подключении по HTTP\) | Значение |
 | :--- | :--- |
+| Login | student |
 | Password | kai |
 
 
