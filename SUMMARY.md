@@ -9,5 +9,5 @@
 * [ПР8. Протокол OSPF](pr8-ospf.md)
 * [ПР9. ACLs](pr9-acls.md)
 * [ПР10. Протокол DHCP](pr10-dhcp.md)
-* ПР11. Технология NAT
+* [ПР11. Технология NAT](pr11-tehnologiya-nat.md)
 
