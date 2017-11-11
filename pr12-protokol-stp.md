@@ -102,11 +102,11 @@ Switch(config-if)# spanning-tree bpduguard enable %выключает порт, 
 
 В MSTP \(иначе MST\) коммутаторы логически делятся на регионы, имеющих общие инстанции VLAN. MST регион определяется следующими параметрами:
 
-* имя конфигурации
-* revision number --- целое число
-* VLAN instance mapping -- список инстанций с VLAN для этого региона
+* имя региона;
+* revision number --- целое число;
+* VLAN instance mapping -- список инстанций с VLAN для этого региона.
 
-Конфигурация MST выполняется таким образом и должна совпадать между коммутаторами в одном регионе:
+Конфигурация MST должна совпадать между коммутаторами в одном регионе и выполняется таким образом:
 
 ```
 Switch(config)# spanning-tree mst conf
@@ -133,14 +133,14 @@ Switch(config)#spanning-tree mst 2 priority 28672 %ручной
 Или для отдельных VLAN, но в этом случается будет запущено по инстанции STP для каждого VLAN:
 
 ```
-Switch(config)#spanning-tree vlan 20,30 root primary 
+Switch(config)#spanning-tree vlan 20,30 root primary
 ```
 
 Проверка конфигурации MST:
 
 ```
 Switch# show spanning-tree mst 
-Switch# show spanning-tree mst configuration 
+Switch# show spanning-tree mst configuration
 ```
 
 **Задание:**
@@ -156,6 +156,4 @@ Switch# show spanning-tree mst configuration
 _Бонусное задание:_ выполнить настройку MSTP в EVE-NG, используя 2 региона для балансировки трафика.
 
  
-
-
 
