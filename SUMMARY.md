@@ -11,5 +11,6 @@
 * [ПР10. Протокол DHCP](pr10-dhcp.md)
 * [ПР11. Технология NAT](pr11-tehnologiya-nat.md)
 * [ПР12. Технология Spanning-Tree](pr12-protokol-stp.md)
+* [ПР13. Технология SDN](pr13-tehnologiya-sdn.md)
 * [Доступ к оборудованию](dostup-k-oborudovaniyu.md)
 
