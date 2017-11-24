@@ -12,6 +12,6 @@
 * [ПР11. Технология NAT](pr11-tehnologiya-nat.md)
 * [ПР12. Технология Spanning-Tree](pr12-protokol-stp.md)
 * [ПР13. Технология SDN](pr13-tehnologiya-sdn.md)
-* [Доступ к оборудованию кафедры](dostup-k-oborudovaniyu.md)
 * [Дополнительная литература](dopolnitelnaya-literatura.md)
+* [Доступ к оборудованию кафедры](dostup-k-oborudovaniyu.md)
 
