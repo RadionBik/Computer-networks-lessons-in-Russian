@@ -99,8 +99,6 @@ R1# show running-config | begin interface %отображает конфигур
 
 ![](/assets/pr6topoVer2.png)
 
-![desc](https://github.com/RadionBik/Computer-networks-lessons-in-Russian/blob/master/assets/pr6topoVer2.png)
-
 5.Провести настройку нового коммутатора используя конфигурацию аналогичную заменённому.
 
 > Можно скопировать вывод _show running-config_ старого свитча и скопировать его на новый в режиме глобальной конфигурации.
@@ -116,5 +114,5 @@ R1# show running-config | begin interface %отображает конфигур
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0OTc2NTc4MV19
+eyJoaXN0b3J5IjpbNjg5MjA3ODI1XX0=
 -->
